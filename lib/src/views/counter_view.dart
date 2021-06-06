@@ -6,7 +6,11 @@ import 'package:getx_state_management/src/controller/simple_state_controller.dar
 class CounterView extends StatelessWidget {
   CounterView({Key? key}) : super(key: key);
 
-  final _controller = Get.put(ReactiveStateController());
+  //simple state Controller  dependency
+  final _simpleStateController = Get.put(SimpleStateController());
+
+  //reactive state Controller  dependency
+  final _reactiveStateController = Get.put(ReactiveStateController());
 
   @override
   Widget build(BuildContext context) {
@@ -18,33 +22,72 @@ class CounterView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GetX(
-              init: _controller,
+            ///
+            ///
+            /// simple state manager
+            GetBuilder(
+              id: 'count',
+              init: _simpleStateController,
               initState: (_) {
                 // ignore: avoid_print
-                print("intializing ...");
+                print("simple state manager intializing ...");
               },
               builder: (controller) => Text(
-                'Count = ${_controller.count}',
+                'Count = ${_simpleStateController.count}',
+                style:
+                    const TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
+              ),
+            ),
+
+            ///
+            ///
+            /// reactive state manager
+            GetX(
+              init: _reactiveStateController,
+              initState: (_) {
+                // ignore: avoid_print
+                print("reactive state manager intializing ...");
+              },
+              builder: (controller) => Text(
+                'Count = ${_reactiveStateController.count}',
+                style:
+                    const TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
+              ),
+            ),
+            Obx(
+              () => Text(
+                'Count = ${_reactiveStateController.count}',
                 style:
                     const TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
               ),
             ),
             TextButton(
               onPressed: () {
-                _controller.increment();
+                // reactive state manager method
+                _reactiveStateController.increment();
+
+                // simple state manager method
+                _simpleStateController.increment();
               },
               child: const Text('Increment'),
             ),
             TextButton(
               onPressed: () {
-                _controller.decrement();
+                // reactive state manager method
+                _reactiveStateController.decrement();
+
+                // simple state manager method
+                _simpleStateController.decrement();
               },
               child: const Text('Decrement'),
             ),
             TextButton(
               onPressed: () {
-                _controller.reset();
+                // reactive state manager method
+                _reactiveStateController.reset();
+
+                // simple state manager method
+                _simpleStateController.reset();
               },
               child: const Text('Reset'),
             ),
