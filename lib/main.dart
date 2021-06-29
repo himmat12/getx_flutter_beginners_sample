@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_state_management/binidings.dart';
+import 'package:getx_state_management/home.dart';
 import 'package:getx_state_management/routes.dart';
-import 'package:getx_state_management/src/views/dependencies_management/example.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,9 +15,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       initialRoute: '/',
+      initialBinding: DependencyBindings(),
       getPages: Routes.getRoutes(),
       debugShowCheckedModeBanner: false,
-      home: ExamplePage(),
+      home: Home(),
     );
   }
 }

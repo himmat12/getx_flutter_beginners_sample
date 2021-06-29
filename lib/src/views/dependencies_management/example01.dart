@@ -1,16 +1,18 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_state_management/src/controller/reactive_state_controller.dart';
 import 'package:getx_state_management/src/services/api_service.dart';
 
-class ExamplePage extends StatefulWidget {
-  ExamplePage({Key? key}) : super(key: key);
+class ExamplePage01 extends StatefulWidget {
+  ExamplePage01({Key? key}) : super(key: key);
 
   @override
   _ExamplePageState createState() => _ExamplePageState();
 }
 
-class _ExamplePageState extends State<ExamplePage> {
+class _ExamplePageState extends State<ExamplePage01> {
   final _counterState = Get.find<ReactiveStateController>();
 
   final _apiService = Get.find<ApiService>();
@@ -83,12 +85,6 @@ class _ExamplePageState extends State<ExamplePage> {
                   icon: Icon(Icons.refresh),
                 ),
               ],
-            ),
-            TextButton(
-              onPressed: () {
-                Get.offAndToNamed('/example01');
-              },
-              child: Text('Next page'),
             ),
           ],
         ),
