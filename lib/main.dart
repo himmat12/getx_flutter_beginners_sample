@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'package:getx_state_management/src/views/route_management/page1.dart';
+import 'package:get/get.dart';
+import 'package:getx_state_management/routes.dart';
+import 'package:getx_state_management/src/views/dependencies_management/example.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,9 +12,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return GetMaterialApp(
+      initialRoute: '/',
+      getPages: Routes.getRoutes(),
       debugShowCheckedModeBanner: false,
-      home: Page1(pageNO: '1'),
+      home: ExamplePage(),
     );
   }
 }

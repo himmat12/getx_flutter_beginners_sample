@@ -3,7 +3,10 @@ import 'package:get/get.dart';
 import 'package:getx_state_management/src/views/route_management/page3.dart';
 
 class Page2 extends StatelessWidget {
-  const Page2({Key? key, required this.pageNO}) : super(key: key);
+  const Page2({
+    Key? key,
+    required this.pageNO,
+  }) : super(key: key);
 
   final String? pageNO;
 
@@ -24,10 +27,12 @@ class Page2 extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const Page3(pageNO: '3')));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) => const Page3(pageNO: '3')));
+
+                Get.toNamed('/page3', arguments: '3');
               },
               child: const Text('Navigate to Page 3'),
             ),
