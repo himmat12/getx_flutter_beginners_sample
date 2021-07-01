@@ -10,8 +10,8 @@ class DependencyBindings extends Bindings {
 
   @override
   void dependencies() {
-    final _counterState = Get.put(ReactiveStateController());
+    final _counterState = Get.lazyPut(() => ReactiveStateController());
 
-    final _apiService = Get.put(ApiService());
+    final _apiService = Get.lazyPut(() => ApiService());
   }
 }

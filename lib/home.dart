@@ -8,7 +8,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('GetX Code Examples & Implementations'),
+        title: Text('GetX Code Examples'),
       ),
       body: SingleChildScrollView(
         child: Column(

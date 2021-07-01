@@ -21,13 +21,14 @@ class _ExamplePageState extends State<ExamplePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('GetX - Dependencies Management'),
+        title: Text('Exapmle'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(18),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            /// fetches api service data
             TextButton(
               onPressed: () {
                 _apiService.getApiData();
@@ -37,6 +38,8 @@ class _ExamplePageState extends State<ExamplePage> {
               },
               child: Text('Fetch API Data'),
             ),
+
+            /// shows retrived data from service
             isFetched != true
                 ? const SizedBox.shrink()
                 : Column(
@@ -53,6 +56,8 @@ class _ExamplePageState extends State<ExamplePage> {
                     ],
                   ),
             const SizedBox(height: 28),
+
+            /// counter widget
             Row(
               children: [
                 IconButton(
@@ -84,9 +89,11 @@ class _ExamplePageState extends State<ExamplePage> {
                 ),
               ],
             ),
+
+            /// navigation btn
             TextButton(
               onPressed: () {
-                Get.offAndToNamed('/example01');
+                Get.toNamed('/example01');
               },
               child: Text('Next page'),
             ),

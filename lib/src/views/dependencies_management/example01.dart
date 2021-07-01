@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_state_management/src/controller/reactive_state_controller.dart';
@@ -23,13 +21,14 @@ class _ExamplePageState extends State<ExamplePage01> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('GetX - Dependencies Management'),
+        title: Text('Exapmle 01'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(18),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            /// fetches api service data
             TextButton(
               onPressed: () {
                 _apiService.getApiData();
@@ -39,6 +38,8 @@ class _ExamplePageState extends State<ExamplePage01> {
               },
               child: Text('Fetch API Data'),
             ),
+
+            /// shows retrived data from service
             isFetched != true
                 ? const SizedBox.shrink()
                 : Column(
@@ -55,6 +56,8 @@ class _ExamplePageState extends State<ExamplePage01> {
                     ],
                   ),
             const SizedBox(height: 28),
+
+            /// counter widget
             Row(
               children: [
                 IconButton(
