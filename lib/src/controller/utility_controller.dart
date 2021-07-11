@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class UtilityController extends GetxController {
   var currentTranslation = translations[0]['value'].obs;
-
+  var isDark = false.obs;
+// translation state
   void setTranslation({required String value}) {
     currentTranslation.value = value;
     switch (value) {
@@ -27,6 +29,17 @@ class UtilityController extends GetxController {
         break;
       default:
         break;
+    }
+  }
+
+// theme state
+  void toggleTheme() {
+    isDark.value = !isDark.value;
+
+    if (isDark.value == true) {
+      Get.changeTheme(ThemeData.dark());
+    } else {
+      Get.changeTheme(ThemeData.light());
     }
   }
 }

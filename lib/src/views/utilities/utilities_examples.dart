@@ -16,7 +16,21 @@ class _UtilitiesExampleState extends State<UtilitiesExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('GetX Utilities')),
+      appBar: AppBar(
+        title: Text('GetX Utilities'),
+        actions: [
+          Obx(
+            () => IconButton(
+              onPressed: () {
+                _utilityController.toggleTheme();
+              },
+              icon: Icon(_utilityController.isDark != true
+                  ? Icons.dark_mode_outlined
+                  : Icons.light_mode_outlined),
+            ),
+          ),
+        ],
+      ),
       body: Obx(
         () => SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
@@ -66,6 +80,8 @@ class _UtilitiesExampleState extends State<UtilitiesExample> {
                     fontWeight: FontWeight.w400,
                     color: Colors.blue),
               ),
+
+              const SizedBox(height: 18),
 
               // dark & light theme
               //TODO : dark/light theme implementation
