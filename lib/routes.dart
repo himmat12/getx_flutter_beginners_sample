@@ -3,6 +3,7 @@ import 'package:getx_state_management/src/views/dependencies_management/example.
 import 'package:getx_state_management/src/views/dependencies_management/example01.dart';
 import 'package:getx_state_management/src/views/route_management/page1.dart';
 import 'package:getx_state_management/src/views/state_management/counter_view.dart';
+import 'package:getx_state_management/src/views/utilities/utilities_examples.dart';
 
 import 'src/views/route_management/page2.dart';
 import 'src/views/route_management/page3.dart';
@@ -15,5 +16,6 @@ class Routes {
         GetPage(name: '/page3', page: () => Page3(pageNO: Get.arguments)),
         GetPage(name: '/example01', page: () => ExamplePage01()),
         GetPage(name: '/example', page: () => ExamplePage()),
+        GetPage(name: '/utilites', page: () => UtilitiesExample()),
       ];
 }
