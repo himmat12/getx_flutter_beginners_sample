@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 
 class UtilityController extends GetxController {
   var currentTranslation = translations[0]['value'].obs;
-  var isDark = false.obs;
+  // var isDark = false.obs;
+
 // translation state
   void setTranslation({required String value}) {
     currentTranslation.value = value;
@@ -34,13 +35,19 @@ class UtilityController extends GetxController {
 
 // theme state
   void toggleTheme() {
-    isDark.value = !isDark.value;
+    // isDark.value = !isDark.value;
 
-    if (isDark.value == true) {
+    if (Get.isDarkMode != true) {
       Get.changeTheme(ThemeData.dark());
     } else {
       Get.changeTheme(ThemeData.light());
     }
+
+    // if (isDark.value == true) {
+    //   Get.changeTheme(ThemeData.dark());
+    // } else {
+    //   Get.changeTheme(ThemeData.light());
+    // }
   }
 }
 

@@ -10,7 +10,7 @@ class UtilitiesExample extends StatefulWidget {
 }
 
 class _UtilitiesExampleState extends State<UtilitiesExample> {
-  final _utilityController = Get.put(UtilityController());
+  final _utilityController = Get.put(UtilityController(), permanent: true);
 
   var products = [];
   @override
@@ -24,9 +24,13 @@ class _UtilitiesExampleState extends State<UtilitiesExample> {
               onPressed: () {
                 _utilityController.toggleTheme();
               },
-              icon: Icon(_utilityController.isDark != true
-                  ? Icons.dark_mode_outlined
-                  : Icons.light_mode_outlined),
+              icon: Icon(Get.isDarkMode == true
+                  ? Icons.light_mode_outlined
+                  : Icons.dark_mode_outlined),
+
+              // icon: Icon(_utilityController.isDark == true
+              //     ? Icons.light_mode_outlined
+              //     : Icons.dark_mode_outlined),
             ),
           ),
         ],
